@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '+gy0cs+ne^z2ht!4oks4g$r^(vt*v_n0lmvbxi$w_k4%qt5kr^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -105,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-mx'
 
 TIME_ZONE = 'UTC'
 
@@ -120,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+
+LOGIN_REDIRECT_URL = reverse_lazy('users:profile')
+AUTH_USER_MODEL = 'users.User'
+AUTHENTICATION_BACKENDS = ('apps.users.backends.UserAuth',)

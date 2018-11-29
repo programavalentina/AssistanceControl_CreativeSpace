@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{%extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+	<main>
+			<div class="container wrapper-25">
+				<div class="jumbotron border-15">
+					<h1 class="text-center title">Valentina Program</h1>
+					<div class="row">
+						<div class="col-md-6 d-none d-md-flex align-items-center">
+							<img class="bg-img hover-img" src="{% static 'images/icons/img-01.png' %}" alt="IMG"/>
+						</div><!-- /end col -->
+						<div class="col-md-6">
+							<h5 class="text-justify container-form">
+								VALENTINA PROGRAM acceleration of the labor insertion of Guatemalan youth in job opportunities in the technology sector. This is done through an efficient training program and a model oriented towards the labor market of technology, where you can see and maintain qualified talent in value jobs.
+							</h5>
+						</div><!-- /end col -->
+					</div><!-- /end body -->
+				</div><!-- /end row -->
+			</div><!-- /end jumbotron -->
+		</main><!-- /end main -->
+	
+{% endblock%}

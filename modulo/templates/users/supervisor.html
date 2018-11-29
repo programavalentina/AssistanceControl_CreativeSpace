@@ -1,0 +1,18 @@
+{%extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+	<div class="row justify-content-center main2 container">
+		<h1>Welcome @{{user.username}}</h1>
+	</div>
+	<section class="">
+		<div class="container">
+			<section class="Jumbotron">
+				<h2 class="texto-blanco">Options</h2>
+			</section>
+			<ul class="list-group">
+			  <a href="/users/courses"><li class="list-group-item noticia">Courses</li></a>
+			  <a href="/users/asistence"><li class="list-group-item noticia">Asistence</li></a>
+			</ul>
+		</div>
+	</section>
+{% endblock%}
