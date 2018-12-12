@@ -116,6 +116,7 @@ def login(request):
 
     return render(request, 'users/login.html', {'form': form, 'error':error})
 
+
 def courses(request):
     if request.user.FKLicenceType.LicenceType == 7:
         courses = Course.objects.filter(Teacher=request.user.Licence)

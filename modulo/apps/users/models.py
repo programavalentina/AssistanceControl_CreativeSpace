@@ -48,6 +48,8 @@ class User(AbstractBaseUser):
     Email = models.EmailField(max_length=80,null=True)
     Phone = models.PositiveIntegerField('Contact Phone', blank=True, null=True)
     FKLicenceType = models.ForeignKey(UserType, on_delete=models.CASCADE, null=True, blank=True)
+    DPI = models.IntegerField('DPI', null=False, blank=False)
+    Photo = models.ImageField(upload_to='photos/', blank=False, null=False)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['nombre', 'apellido']
@@ -76,6 +78,7 @@ class Course(models.Model):
     NameCourse = models.CharField(max_length=45)
     Description = models.TextField()
     Teacher = models.ForeignKey(User, limit_choices_to= {'FKLicenceType': 7}, on_delete=models.CASCADE, null=True, blank=True)
+
 
     def __str__(self):
         return self.NameCourse

@@ -8,6 +8,8 @@ class UserForm(UserCreationForm):
         model = User
         fields = [
             'username',
+            'DPI',
+            'Photo',
             'Name1',
             'Name2',
             'Name3',
@@ -17,9 +19,12 @@ class UserForm(UserCreationForm):
             'Email',
             'Phone',
             'FKLicenceType',
+
         ]
         labels = {
             'username':'Username',
+            'DPI':'DPI',
+            'Photo':'Photo',
             'Name1':'Name1',
             'Name2': 'Name2',
             'Name3': 'Name3',
@@ -33,6 +38,8 @@ class UserForm(UserCreationForm):
         years = [x for x in range(1980, 2019)]
         widgets = {
             'username': widgets.TextInput(attrs={'class': ''}),
+            'DPI': widgets.TextInput(),
+            'Photo': widgets.FileInput(),
             'Name1': widgets.TextInput(attrs={'class': ''}),
             'Name2': widgets.TextInput(attrs={'class': ''}),
             'Name3': widgets.TextInput(attrs={'class': ''}),
@@ -49,6 +56,8 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = [
             'username',
+            'DPI',
+            'Photo',
             'Name1',
             'Name2',
             'Name3',
@@ -60,6 +69,8 @@ class RegisterForm(UserCreationForm):
         ]
         labels = {
             'username':'Username',
+            'DPI':'DPI',
+            'Photo':'Photo',
             'Name1':'Name1',
             'Name2': 'Name2',
             'Name3': 'Name3',
@@ -72,6 +83,8 @@ class RegisterForm(UserCreationForm):
         years = [x for x in range(1980, 2019)]
         widgets = {
             'username': widgets.TextInput(attrs={'class': ''}),
+            'DPI': widgets.TextInput(),
+            'Photo':widgets.FileInput(),
             'Name1': widgets.TextInput(attrs={'class': ''}),
             'Name2': widgets.TextInput(attrs={'class': ''}),
             'Name3': widgets.TextInput(attrs={'class': ''}),
@@ -102,7 +115,7 @@ class CourseForm(forms.ModelForm):
             'Teacher':'Teacher',
         }
         teachers = User.objects.filter(FKLicenceType=7)
-        print(teachers)
+
         widgets = {
             'NameCourse': widgets.TextInput(attrs={'class': ''}),
             'Description': widgets.TextInput(attrs={'class': ''}),
