@@ -10,7 +10,7 @@ from .models import *
 
 def RegistroUsuario(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
+        form = RegisterForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.FKLicenceType = UserType.objects.get(LicenceType=8)
@@ -163,6 +163,7 @@ class UpdateUser(UpdateView):
     success_url = reverse_lazy('users:users')
     template_name = 'users/update_user.html'
 
+
 class DeleteUser(DeleteView):
     model = User
     success_url = reverse_lazy('users:users')
@@ -250,10 +251,3 @@ def assistences_students(request, pk):
         list_of_obj.update(Estate=True)
     assistencesLists = AssistanceList.objects.filter(FKIdAssistance=pk)
     return render(request, 'users/assistences_students.html', {'IdAssistance':pk,'assistenceLists':assistencesLists})
-
-
-
-
-
-
-

@@ -10,7 +10,7 @@
 							<img class="bg-img hover-img" src="{% static 'images/icons/img-01.png' %}" alt="IMG"/>
 						</div><!-- /end col -->
 						<div class="col-md-6">
-							<form class="container-form" method="post">
+							<form class="container-form" method="post" enctype="multipart/form-data">
 								<h1 class="text-center pb-5 subtitle">Sign Up</h1>
 								{% csrf_token %}
 								{{ form }}

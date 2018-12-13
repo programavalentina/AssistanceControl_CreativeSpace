@@ -49,7 +49,7 @@ class User(AbstractBaseUser):
     Phone = models.PositiveIntegerField('Contact Phone', blank=True, null=True)
     FKLicenceType = models.ForeignKey(UserType, on_delete=models.CASCADE, null=True, blank=True)
     DPI = models.IntegerField('DPI', null=False, blank=False)
-    Photo = models.ImageField(upload_to='photos/', blank=False, null=False)
+    Photo = models.ImageField(upload_to='photos/', blank=True, null=False, verbose_name='Photo')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['nombre', 'apellido']
